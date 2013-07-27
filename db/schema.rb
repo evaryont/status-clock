@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130727033146) do
+ActiveRecord::Schema.define(version: 20130727060223) do
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20130727033146) do
     t.string   "status_4"
     t.string   "status_5"
     t.string   "status_6"
+    t.string   "token_code"
+    t.datetime "expires_at"
   end
 
 end
