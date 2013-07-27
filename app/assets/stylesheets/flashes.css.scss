@@ -1,14 +1,14 @@
 @import "foundation/variables", "foundation/components/global";
 @import "foundation/components/alert-boxes";
 
-#flash_notice {
+.flash-notice {
   @include alert($success-color);
   .close {
     @include alert-close;
   }
 }
 
-#flash_alert {
+.flash-alert {
   @include alert;
   .close {
     @include alert-close;
