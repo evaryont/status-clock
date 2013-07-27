@@ -1302,3 +1302,14 @@ $default-float: left;
 // $topbar-sticky-class: ".sticky";
 
 @import 'foundation';
+
+.top-bar .logged-in {
+  display: block;
+  width: 100%;
+  color: $topbar-link-color;
+  padding: 12px 0 12px 0;
+  padding-#{$default-float}: $topbar-height / 3;
+  font-size: $topbar-link-font-size;
+  font-weight: $topbar-link-weight;
+  background: $topbar-dropdown-bg;
+}

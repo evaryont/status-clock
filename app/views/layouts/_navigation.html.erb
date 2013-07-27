@@ -58,10 +58,10 @@
       </li>
       <li class="divider"></li>
       <% if user_signed_in? %>
-        <li>Logged in as <%= current_user.name %></li>
+        <li><a>Logged in as <%= current_user.name %></a></li>
         <li><%= link_to 'Logout', signout_path %></li>
       <% else %>
-        <li><%= link_to 'Login', signin_path %></li>
+        <li><%= link_to 'Login', signin_path, class: 'button' %></li>
       <% end %>
     </ul>
   </section>
