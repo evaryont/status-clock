@@ -1,0 +1,16 @@
+@import "foundation/variables", "foundation/components/global";
+@import "foundation/components/alert-boxes";
+
+#flash_notice {
+  @include alert($success-color);
+  .close {
+    @include alert-close;
+  }
+}
+
+#flash_alert {
+  @include alert;
+  .close {
+    @include alert-close;
+  }
+}
