@@ -1,4 +1,8 @@
 ClockLocations::Application.routes.draw do
+  resources :clocks
+
+  resources :statuses
+
   root :to => "home#index"
   resources :users, :only => [:index, :show, :edit, :update ]
   get '/auth/:provider/callback' => 'sessions#create'

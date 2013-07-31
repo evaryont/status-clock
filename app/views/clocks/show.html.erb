@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @clock.user %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @clock.status %>
+</p>
+
+<%= link_to 'Edit', edit_clock_path(@clock) %> |
+<%= link_to 'Back', clocks_path %>
