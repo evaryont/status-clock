@@ -12,3 +12,15 @@
 
 <%= link_to 'Edit', edit_clock_path(@clock) %> |
 <%= link_to 'Back', clocks_path %>
+
+<pre>
+<%= @clock.pretty_inspect %>
+
+--------------------------------------------------------------------------------
+
+<%= @clock.user.pretty_inspect %>
+
+--------------------------------------------------------------------------------
+
+<%= @clock.status.pretty_inspect %>
+</pre>
