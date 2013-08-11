@@ -3,7 +3,7 @@
 <p>
   <strong><%= pluralize @clock.users.length, 'User' %>:</strong><br />
   <% @clock.users.each do |user| %>
-    <%= link_to user.name, user %><br />
+    <%= link_to user.name, user %> (Currently: <%= user.status.text %>)<br />
   <% end %>
 </p>
 
