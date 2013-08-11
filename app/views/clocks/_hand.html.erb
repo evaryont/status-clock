@@ -1,0 +1,7 @@
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <% maximum = [@user.clock.users.map {|user| user.hand}, @user.hand, @user.clock.users.count+1].flatten.max %>
+  <%= f.input :hand, collection: 1..maximum %>
+  <%= f.submit 'Update Hand' %>
+<% end %>

@@ -12,6 +12,8 @@
   </div>
 <% end %>
 
+<%= render partial: 'hand', locals: { '@user'.to_sym => current_user } %>
+
 <% @clock.statuses.each do |status| %>
   <%= render partial: 'statuses/form', locals: { '@status'.to_sym => status } %>
 <% end %>

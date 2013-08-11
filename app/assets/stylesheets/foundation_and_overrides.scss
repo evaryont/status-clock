@@ -1323,3 +1323,23 @@ input[type="text"].status-inline {
 .clock-id {
   font-style: italic;
 }
+
+.user_hand {
+  display: inline;
+  width: 550px;
+
+  label, input {
+    display: inline;
+  }
+  label {
+    padding-right: 1em;
+  }
+
+  option:checked { color: maroon; }
+  select {
+    color: maroon;
+    width: 200px;
+  }
+  option:not(:checked) { color: black; }
+}
+
