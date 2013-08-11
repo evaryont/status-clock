@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   validates_presence_of :name
-  has_one :clock
+  belongs_to :clock
   has_one :status
 
   # Create a new User instance by passing in the hash results from

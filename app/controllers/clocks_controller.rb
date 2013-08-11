@@ -1,6 +1,6 @@
 class ClocksController < ApplicationController
   before_action :set_clock, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:create]
+  before_filter :authenticate_user!, only: [:create, :new]
 
   # GET /clocks
   # GET /clocks.json
@@ -25,16 +25,12 @@ class ClocksController < ApplicationController
   # POST /clocks
   # POST /clocks.json
   def create
-    @clock = Clock.new(clock_params)
+    clock_saved = Clock.init_with_statuses(current_user, clock_params[:lcd_count])
 
-    respond_to do |format|
-      if @clock.save
-        format.html { redirect_to @clock, notice: 'Clock was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @clock }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @clock.errors, status: :unprocessable_entity }
-      end
+    if clock_saved
+      redirect_to root_path, notice: 'Clock was successfully created.'
+    else
+      redirect_to action: 'new'
     end
   end
 
@@ -70,6 +66,6 @@ class ClocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clock_params
-      params.require(:clock).permit(:users_id, :statuses_id)
+      params.require(:clock).permit(:users_id, :statuses_id, :lcd_count)
     end
 end
