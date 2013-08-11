@@ -1,3 +1,9 @@
 <h3>User</h3>
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+<% if @user.clock %>
+<p><%= link_to "Clock #{@user.clock.id}", @user.clock %></p>
+<% end %>
+<% if @user.status %>
+<p>Status: <%= link_to @user.status.text, @user.status %></p>
+<% end %>
