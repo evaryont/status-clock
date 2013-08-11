@@ -1313,3 +1313,9 @@ $default-float: left;
   font-weight: $topbar-link-weight;
   background: $topbar-dropdown-bg;
 }
+
+input[type="text"].status-inline {
+  display: inline;
+  // 32 is the total number of characters that can be shown in the LCD
+  width: emCalc(32 * $em-base);
+}

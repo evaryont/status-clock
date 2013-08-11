@@ -1,12 +1,6 @@
 <%= simple_form_for(@status) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :text %>
-    <%= f.input :lcd %>
-  </div>
-
-  <div class="form-actions">
+    <%= f.input_field :text, class: 'status-inline' %>
     <%= f.button :submit %>
-  </div>
 <% end %>
