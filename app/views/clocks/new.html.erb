@@ -1,5 +1,20 @@
 <h1>New clock</h1>
 
-<%= render 'form' %>
+<%= simple_form_for(@clock) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <!-- copied & pasted from a generated simple form. I feel nasty, but there
+         isn't a way to have simple_form avoid hitting the database -->
+    <div class="input integer optional clock_lcd_count">
+      <label class="integer optional control-label" for="clock_lcd_count">LCD count</label>
+      <input class="numeric integer optional" id="clock_lcd_count" name="clock[lcd_count]" step="1" value="6" type="number">
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', clocks_path %>
