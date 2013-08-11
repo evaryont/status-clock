@@ -1,6 +1,6 @@
 class ClocksController < ApplicationController
   before_action :set_clock, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:create, :new]
+  before_filter :authenticate_user!, only: [:create, :new, :update]
 
   # GET /clocks
   # GET /clocks.json
@@ -42,7 +42,7 @@ class ClocksController < ApplicationController
         format.html { redirect_to @clock, notice: 'Clock was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'edit', alert: 'There was an issue updating the clock.' }
         format.json { render json: @clock.errors, status: :unprocessable_entity }
       end
     end
@@ -66,6 +66,6 @@ class ClocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clock_params
-      params.require(:clock).permit(:users_id, :statuses_id, :lcd_count)
+      params.require(:clock).permit!#(:user_ids, :status_ids, :lcd_count)
     end
 end
