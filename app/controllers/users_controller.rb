@@ -22,8 +22,13 @@ class UsersController < ApplicationController
   end
 
   def status_update
+    @user.status_id = @user.clock.statuses[params[:lcd].to_i].id
     @user.status = @user.clock.statuses[params[:lcd].to_i]
-    redirect_to @user.clock, notice: "Status updated to #{@user.status.text}"
+    if @user.save
+      redirect_to @user.clock, notice: "Status updated to #{@user.status.text}."
+    else
+      redirect_to @user.clock, alert: 'Failed updating status.'
+    end
   end
 
   private
