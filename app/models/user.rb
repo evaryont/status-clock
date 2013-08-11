@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   validates_presence_of :name
   belongs_to :clock
-  has_one :status
+  belongs_to :status
 
   # Create a new User instance by passing in the hash results from
   # env['omniauth.auth']

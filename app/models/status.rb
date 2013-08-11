@@ -1,7 +1,7 @@
 class Status < ActiveRecord::Base
   DEFAULTS = %w[Home Work School Sleep Games Shopping Flying]
 
-  belongs_to :user
+  has_many :users
   belongs_to :clock
 
   def to_s

@@ -1,8 +1,10 @@
 <p> <%= @status.text %> [<%= @status.lcd %>] </p>
 
 <p>
-  <strong>User:</strong>
-  <%= link_to @status.user.name, @status.user %>
+  <strong>Users:</strong><br />
+  <% @status.users.each do |user| %>
+    <%= link_to user.name, user %><br/>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_status_path(@status) %> |
