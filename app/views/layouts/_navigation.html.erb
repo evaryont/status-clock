@@ -13,23 +13,36 @@
     <!-- Left Nav Section -->
     <ul class="left">
       <li class="divider"></li>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.clock %>
         <li><%= link_to "Clock", current_user.clock %></li>
       <% else %>
         <li><%= link_to "Clocks", clocks_path %></li>
       <% end %>
+
       <% if user_signed_in? %>
         <li class="divider"></li>
+        <% if current_user.clock %>
         <li class="has-dropdown">
-          <a><a>Current Status: <%= current_user.status.text %></a>
+          <% if current_user.status %>
+            <a>Current Status: <%= current_user.status.text %></a>
+          <% else %>
+            <a>No status</a>
+          <% end %>
           <ul class="dropdown">
             <% current_user.clock.statuses.each do |status| %>
               <li><%= link_to status.text, status_update_path(current_user, status.lcd) %></li>
             <% end %>
-            <li class="divider"></li>
-            <li><a>See all &rarr;</a></li>
           </ul>
         </li>
+        <% else %>
+        <li>
+          <% if current_user.status %>
+            <a>Current Status: <%= current_user.status.text %></a>
+          <% else %>
+            <a>No status</a>
+          <% end %>
+        </li>
+        <% end %>
       <% end %>
     </ul>
 
