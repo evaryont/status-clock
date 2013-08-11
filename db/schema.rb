@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130731085133) do
+ActiveRecord::Schema.define(version: 20130811110158) do
 
   create_table "clocks", force: true do |t|
     t.integer  "users_id"
@@ -42,11 +42,12 @@ ActiveRecord::Schema.define(version: 20130731085133) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "token_code"
+    t.string   "access_token"
     t.datetime "expires_at"
     t.integer  "status_id"
     t.integer  "hand"
     t.integer  "clock_id"
+    t.string   "refresh_token"
   end
 
   add_index "users", ["clock_id"], name: "index_users_on_clock_id"

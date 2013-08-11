@@ -11,14 +11,17 @@ gem 'jbuilder', '~> 1.2'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'google-api-client', '>= 0.6'
 gem 'simple_form', '>= 3.0.0.rc'
 
 gem 'compass-rails'
 gem 'zurb-foundation', '~> 4'
+gem 'leaflet-rails'
+gem 'jquery-turbolinks'
 
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
+  gem 'binding_of_caller'
   gem 'quiet_assets'
 end
 

@@ -14,8 +14,11 @@ class User < ActiveRecord::Base
         user.email = auth['info']['email'] || ""
       end
       if auth['credentials']
-        user.token_code = auth['credentials']['token'] || ""
+        pp auth['credentials']
+        user.access_token = auth['credentials']['token'] || ""
+        user.refresh_token = auth['credentials']['refresh_token'] || ""
         user.expires_at = auth['credentials']['expires_at'] || nil
+        pp user
       end
     end
   end
@@ -25,8 +28,7 @@ class User < ActiveRecord::Base
       # The token has expired
       nil
     else
-      token_code
+      access_token
     end
   end
-
 end

@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require leaflet
+//= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
 

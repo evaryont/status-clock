@@ -1,6 +1,27 @@
 <% if current_user %>
   <h3>Hello, <%= current_user.name %></h3>
-  <pre><%= request.env.pretty_inspect %></pre>
+  <p>Hello (from Google's DB): <%= @profile.display_name %></p>
+  <p>Your latest post on Google+:</p>
+  <blockquote><%== @latest_post.object.content %></blockquote>
+  <div id="checkin-map"></div>
+  <!-- verb: checkin
+  
+  gecode: "lat.123 long.456"
+
+  address: "12345 st ..."
+
+  placename: "UAT"
+
+  location.position.latitude
+  location.position.longitude
+  location.address.formatted
+  location.displayName
+  location.kind: plus#place
+
+  -->
+  <script>
+    var CHECKIN_LAT_LONG = [<%= @latest_post.location.position.latitude %>, <%= @latest_post.location.position.longitude %>]
+  </script>
 <% else %>
   <p><%= link_to 'Login!', signin_path %></p>
 <% end %>

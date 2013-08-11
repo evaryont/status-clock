@@ -9,10 +9,11 @@ class SessionsController < ApplicationController
     auth = request.env["omniauth.auth"]
     user = User.where(:provider => auth['provider'], 
                       :uid => auth['uid'].to_s).first || User.create_with_omniauth(auth)
-# Reset the session after successful login, per
-# 2.8 Session Fixation – Countermeasures:
-# http://guides.rubyonrails.org/security.html#session-fixation-countermeasures
+    # Reset the session after successful login, per
+    # 2.8 Session Fixation – Countermeasures:
+    # http://guides.rubyonrails.org/security.html#session-fixation-countermeasures
     reset_session
+    pp auth
     session[:user_id] = user.id
     if user.email.blank?
       redirect_to edit_user_path(user), :alert => "Please enter your email address."
