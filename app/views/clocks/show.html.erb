@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong><%= pluralize @clock.users.length, 'User' %>:</strong><br />
   <% @clock.users.each do |user| %>
@@ -13,6 +11,8 @@
     <%= link_to status.text, status %> [<%= status.lcd %>]<br />
   <% end %>
 </p>
+
+<p class='clock-id'>Clock ID: <%= @clock.id %></p>
 
 <%= link_to 'Edit', edit_clock_path(@clock) %> |
 <%= link_to 'Destroy', @clock, method: :delete, data: { confirm: 'Are you sure?' } %> |
