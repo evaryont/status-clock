@@ -1,26 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @clock.user %>
+  <strong>Users:</strong>
+  <%= @clock.users %>
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @clock.status %>
+  <strong>Statuses:</strong>
+  <%= @clock.statuses %>
 </p>
 
 <%= link_to 'Edit', edit_clock_path(@clock) %> |
 <%= link_to 'Back', clocks_path %>
-
-<pre>
-<%= @clock.pretty_inspect %>
-
---------------------------------------------------------------------------------
-
-<%= @clock.user.pretty_inspect %>
-
---------------------------------------------------------------------------------
-
-<%= @clock.status.pretty_inspect %>
-</pre>

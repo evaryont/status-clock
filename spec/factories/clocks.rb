@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :clock do
-    user nil
-    status nil
+    users nil
+    statuses nil
   end
 end

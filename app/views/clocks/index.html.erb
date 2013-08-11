@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Status</th>
+      <th>Users</th>
+      <th>Statuses</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,8 +14,8 @@
   <tbody>
     <% @clocks.each do |clock| %>
       <tr>
-        <td><%= clock.user %></td>
-        <td><%= clock.status %></td>
+        <td><%= clock.users %></td>
+        <td><%= clock.statuses %></td>
         <td><%= link_to 'Show', clock %></td>
         <td><%= link_to 'Edit', edit_clock_path(clock) %></td>
         <td><%= link_to 'Destroy', clock, method: :delete, data: { confirm: 'Are you sure?' } %></td>

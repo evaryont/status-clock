@@ -23,7 +23,7 @@ describe ClocksController do
   # This should return the minimal set of attributes required to create a valid
   # Clock. As you add validations to Clock, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "user" => "" } }
+  let(:valid_attributes) { { "users" => "" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe ClocksController do
       it "assigns a newly created but unsaved clock as @clock" do
         # Trigger the behavior that occurs when invalid params are submitted
         Clock.any_instance.stub(:save).and_return(false)
-        post :create, {:clock => { "user" => "invalid value" }}, valid_session
+        post :create, {:clock => { "users" => "invalid value" }}, valid_session
         assigns(:clock).should be_a_new(Clock)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Clock.any_instance.stub(:save).and_return(false)
-        post :create, {:clock => { "user" => "invalid value" }}, valid_session
+        post :create, {:clock => { "users" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe ClocksController do
         # specifies that the Clock created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Clock.any_instance.should_receive(:update).with({ "user" => "" })
-        put :update, {:id => clock.to_param, :clock => { "user" => "" }}, valid_session
+        Clock.any_instance.should_receive(:update).with({ "users" => "" })
+        put :update, {:id => clock.to_param, :clock => { "users" => "" }}, valid_session
       end
 
       it "assigns the requested clock as @clock" do
@@ -128,7 +128,7 @@ describe ClocksController do
         clock = Clock.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Clock.any_instance.stub(:save).and_return(false)
-        put :update, {:id => clock.to_param, :clock => { "user" => "invalid value" }}, valid_session
+        put :update, {:id => clock.to_param, :clock => { "users" => "invalid value" }}, valid_session
         assigns(:clock).should eq(clock)
       end
 
@@ -136,7 +136,7 @@ describe ClocksController do
         clock = Clock.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Clock.any_instance.stub(:save).and_return(false)
-        put :update, {:id => clock.to_param, :clock => { "user" => "invalid value" }}, valid_session
+        put :update, {:id => clock.to_param, :clock => { "users" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

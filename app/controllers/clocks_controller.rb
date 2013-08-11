@@ -69,6 +69,6 @@ class ClocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clock_params
-      params.require(:clock).permit(:user_id, :status_id)
+      params.require(:clock).permit(:users_id, :statuses_id)
     end
 end

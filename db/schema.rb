@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130731083956) do
+ActiveRecord::Schema.define(version: 20130731085133) do
 
   create_table "clocks", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "status_id"
+    t.integer  "users_id"
+    t.integer  "statuses_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "clocks", ["status_id"], name: "index_clocks_on_status_id"
-  add_index "clocks", ["user_id"], name: "index_clocks_on_user_id"
+  add_index "clocks", ["statuses_id"], name: "index_clocks_on_statuses_id"
+  add_index "clocks", ["users_id"], name: "index_clocks_on_users_id"
 
   create_table "statuses", force: true do |t|
     t.string   "text"
