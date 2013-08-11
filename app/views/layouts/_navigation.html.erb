@@ -12,9 +12,11 @@
   <section class="top-bar-section">
     <!-- Left Nav Section -->
     <ul class="left">
-      <li>
-        <%= link_to "Clocks", clocks_path %>
-      </li>
+      <% if user_signed_in? %>
+        <li><%= link_to "Clock", current_user.clock %></li>
+      <% else %>
+        <li><%= link_to "Clocks", clocks_path %></li>
+      <% end %>
       <li class="divider"></li>
       <li>
         <%= link_to "Statuses", statuses_path %>
