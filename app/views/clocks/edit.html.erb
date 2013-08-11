@@ -1,6 +1,20 @@
 <h1>Editing clock</h1>
 
-<%= render 'form' %>
+<%= simple_form_for(@clock) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :users %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Update Users' %>
+  </div>
+<% end %>
+
+<% @clock.statuses.each do |status| %>
+  <%= render partial: 'statuses/form', locals: { '@status'.to_sym => status } %>
+<% end %>
 
 <%= link_to 'Show', @clock %> |
 <%= link_to 'Back', clocks_path %>
