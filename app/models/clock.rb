@@ -5,8 +5,9 @@ class Clock < ActiveRecord::Base
   # Create a new clock, along with a number of statuses. These new statuses will
   # serve to be the initial statuses displayed on the clock.
   def self.init_with_statuses(from_user, lcd_count = 6)
+    Rails.logger.debug "Creating a new clock for #{from_user} with #{lcd_count} statuses"
     new_clock = Clock.new
-    new_clock.statuses = (0..(lcd_count-1)).map do |lcd_position|
+    new_clock.statuses = (0..(lcd_count.to_i-1)).map do |lcd_position|
       default_status = Status.new
       default_status.text = Status::DEFAULTS[lcd_position]
       default_status.lcd = lcd_position
