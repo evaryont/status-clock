@@ -2,6 +2,9 @@
   <strong><%= pluralize @clock.users.length, 'User' %>:</strong><br />
   <% @clock.users.each do |user| %>
     <%= link_to user.name, user %>
+    <% if user.hand && user.hand > 0 %>
+      [Hand <%= user.hand %>]
+    <% end %>
     <% if user.status %>
       (Currently: <%= user.status.text %>)
     <% end %><br />
