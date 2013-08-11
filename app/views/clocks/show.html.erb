@@ -11,12 +11,15 @@
   <% end %>
 </p>
 
-<p>
-  <strong><%= pluralize @clock.statuses.length, 'Status' %>:</strong><br />
+<div id='status-container' data-radius=110 data-offsetx=115 data-offsety=10>
+  <strong><%= pluralize @clock.statuses.length, 'Status' %>:</strong>
+
   <% @clock.statuses.each do |status| %>
-    <%= link_to status.text, status %> [<%= status.lcd %>]<br />
+  <div class='status'>
+    <%= link_to status.text, status %> [<%= status.lcd %>]
+  </div>
   <% end %>
-</p>
+</div>
 
 <p class='clock-id'>Clock ID: <%= @clock.id %></p>
 

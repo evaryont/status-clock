@@ -1343,3 +1343,6 @@ input[type="text"].status-inline {
   option:not(:checked) { color: black; }
 }
 
+#status-container {
+  height: 300px;
+}
