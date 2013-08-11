@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Users:</strong>
-  <%= @clock.users %>
+  <strong><%= pluralize @clock.users.length, 'User' %>:</strong><br />
+  <% @clock.users.each do |user| %>
+    <%= link_to user.name, user %><br />
+  <% end %>
 </p>
 
 <p>
-  <strong>Statuses:</strong>
-  <%= @clock.statuses %>
+  <strong><%= pluralize @clock.statuses.length, 'Status' %>:</strong><br />
+  <% @clock.statuses.each do |status| %>
+    <%= link_to status.text, status %> [<%= status.lcd %>]<br />
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_clock_path(@clock) %> |
+<%= link_to 'Destroy', @clock, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', clocks_path %>
