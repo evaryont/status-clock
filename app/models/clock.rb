@@ -18,6 +18,7 @@ class Clock < ActiveRecord::Base
     new_clock.save!
 
     from_user.clock = new_clock
+    from_user.status = new_clock.statuses[0]
     from_user.save!
   end
 end
