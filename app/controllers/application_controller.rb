@@ -81,18 +81,23 @@ class ApplicationController < ActionController::Base
     #
     # The user must be logged in before using this method.
     def google_api_call(parameters)
-      parameters.merge!({ authorization: google_authorization })
-      execute_method = lambda do
-        google_api.execute(parameters)
-      end
-      method_result = execute_method.call
-      if method_result.status == 401
-        # The access token expired, so fetch a new one and
-        # retry once.
-        google_api.authorization.fetch_access_token!
+      begin
+        parameters.merge!({ authorization: google_authorization })
+        execute_method = lambda do
+          google_api.execute(parameters)
+        end
         method_result = execute_method.call
-      end
+        if method_result.status == 401
+          # The access token expired, so fetch a new one and
+          # retry once.
+          google_api.authorization.fetch_access_token!
+          method_result = execute_method.call
+        end
 
-      return method_result
+        return method_result
+      rescue Signet::AuthorizationError => error
+        Rails.logger.error error
+        return nil
+      end
     end
 end
