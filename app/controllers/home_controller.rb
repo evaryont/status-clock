@@ -9,7 +9,9 @@ class HomeController < ApplicationController
       @latest_post = google_api_call({
         api_method: google_plus.activities.list,
         parameters: { 'userId' => 'me', 'collection' => 'public' }
-      }).data.items.first
+      }).data.items.select do |google_plus_post|
+        google_plus_post.verb == "checkin"
+      end.first
     end
   end
 end
