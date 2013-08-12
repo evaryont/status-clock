@@ -33,6 +33,7 @@ end
 group :production do
   gem 'thin'
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :test do
