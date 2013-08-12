@@ -14,11 +14,11 @@ class User < ActiveRecord::Base
         user.email = auth['info']['email'] || ""
       end
       if auth['credentials']
-        pp auth['credentials']
+        pp auth['credentials'] unless Rails.env.production?
         user.access_token = auth['credentials']['token'] || ""
         user.refresh_token = auth['credentials']['refresh_token'] || ""
         user.expires_at = auth['credentials']['expires_at'] || nil
-        pp user
+        pp user unless Rails.env.production?
       end
     end
   end

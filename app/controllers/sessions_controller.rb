@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     # 2.8 Session Fixation – Countermeasures:
     # http://guides.rubyonrails.org/security.html#session-fixation-countermeasures
     reset_session
-    pp auth
+    pp auth unless Rails.env.production?
     session[:user_id] = user.id
     if user.email.blank?
       redirect_to edit_user_path(user), :alert => "Please enter your email address."
