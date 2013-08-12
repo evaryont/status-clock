@@ -5,7 +5,7 @@ class HomeController < ApplicationController
         api_method: google_plus.people.get,
         parameters: { 'userId' => 'me' }
       })
-      @profile = @profile.data unless @profile
+      @profile = @profile.data if @profile
 
       @latest_post = google_api_call({
         api_method: google_plus.activities.list,
@@ -13,7 +13,7 @@ class HomeController < ApplicationController
       })
       @latest_post = @latest_post.data.items.select do |google_plus_post|
         google_plus_post.verb == "checkin"
-      end.first unless @latest_post
+      end.first if @latest_post
     end
   end
 end
