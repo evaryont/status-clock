@@ -1,6 +1,7 @@
 <% if current_user %>
   <h3>Hello, <%= current_user.name %></h3>
   <p>Hello (from Google's DB): <%= @profile.display_name %></p>
+  <% if @latest_post.location %>
   <p>Your latest post on Google+:</p>
   <blockquote><%== @latest_post.object.content %></blockquote>
   <div id="checkin-map"></div>
@@ -22,6 +23,10 @@
   <script>
     var CHECKIN_LAT_LONG = [<%= @latest_post.location.position.latitude %>, <%= @latest_post.location.position.longitude %>]
   </script>
+  <% else %>
+  <p>Go do a public check-in already!</p>
+  <% end %>
+
 <% else %>
   <p><%= link_to 'Login!', signin_path %></p>
 <% end %>
