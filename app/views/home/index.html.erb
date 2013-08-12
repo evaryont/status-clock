@@ -1,7 +1,9 @@
 <% if current_user %>
   <h3>Hello, <%= current_user.name %></h3>
-  <p>Hello (from Google's DB): <%= @profile.display_name %></p>
-  <% if @latest_post.location %>
+  <% if @profile %>
+  <p>Hello (from Google's DB): <% image_tag @profile.image.url, size: '50', alt: "#{@profile.display_name}'s avatar'" %><%= @profile.display_name %></p>
+  <% end %>
+  <% if @latest_post && @latest_post.location %>
   <p>Your latest post on Google+:</p>
   <blockquote><%== @latest_post.object.content %></blockquote>
   <div id="checkin-map"></div>
