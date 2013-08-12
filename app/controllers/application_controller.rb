@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
 
     # Create a Google API client object.
     def google_api
-      @google_api ||= Google::APIClient.new
+      @google_api ||= Google::APIClient.new(:application_name => 'Status Clock', :application_version => '1.0.0')
       @google_api.authorization.clear_credentials!
       return @google_api
     end
