@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :user_signed_in?
 
+  before_filter :set_start_time
+
+  def set_start_time
+    @start_time = Time.now.usec
+  end
+
   private
     def current_user
       begin
@@ -45,7 +51,7 @@ class ApplicationController < ActionController::Base
         "web" => {
           "client_id" => ENV['OMNIAUTH_PROVIDER_KEY'],
           "client_secret" => ENV['OMNIAUTH_PROVIDER_SECRET'],
-          #"redirect_uris" => ["http://localhost:3000", "http://evs.com:3000"],
+          "redirect_uris" => ["http://localhost:3000", "http://evs.com:3000", "https://status-clock.herokuapp.com"],
           "auth_uri" => "https://accounts.google.com/o/oauth2/auth",
           "token_uri" => "https://accounts.google.com/o/oauth2/token"
         }
