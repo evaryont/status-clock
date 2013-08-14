@@ -24,4 +24,17 @@ class Clock < ActiveRecord::Base
     from_user.hand = 1
     from_user.save!
   end
+
+  module SortedStatuses
+    # Returns the same data as before, but sorts the list of statuses by their LCD
+    # number. (Intending so that the status with LCD 0 is at the top of the list.)
+    def statuses
+      super.sort_by do |status|
+        status.lcd
+      end
+    end
+  end
+
+  include SortedStatuses
 end
+
