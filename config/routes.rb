@@ -10,4 +10,6 @@ ClockLocations::Application.routes.draw do
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/auth/failure' => 'sessions#failure'
   get '/user/:id/status/:lcd' => 'users#status_update', as: :status_update
+
+  get '/tiles/:s/:z/:x/:y.png' => 'tiles#proxy'
 end
