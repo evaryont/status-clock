@@ -2,7 +2,7 @@
 function distributeFields() {
     var fields = $('.status'), container = $('#status-container'),
         width = container.width(), height = container.height(),
-        angle = Math.PI+Math.PI/2, step = (2*Math.PI) / fields.length;
+        angle = Math.PI+Math.PI/2, step = (-2*Math.PI) / fields.length;
 
     if (container.position() !== undefined) {
         var basex = container.position().left + container.data('offsetx'),
