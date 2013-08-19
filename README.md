@@ -3,7 +3,8 @@
 This is the Status Clock, a school project to recreate the Weasley's family
 clock from Harry Potter.
 
-<iframe width="480" height="360" src="//www.youtube-nocookie.com/embed/YRWMdjvVUF4?rel=0" frameborder="0" allowfullscreen></iframe>
+![https://img.youtube.com/vi/YRWMdjvVUF4/hqdefault.jpg](https://youtu.be/YRWMdjvVUF4)
+[A youtube video demonstrating the project](https://youtu.be/YRWMdjvVUF4)
 
 ## Design
 
