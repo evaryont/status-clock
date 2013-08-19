@@ -47,7 +47,7 @@ Specific components of this project are licensed.
 The Raspberry Pi and Arduino code is released under the MIT license. See
 [LICENSE.MIT](LICENSE.MIT) for the full text of the license.
 
-The Rails application is released under the AGPL. See
+The Rails application is released under the AGPLv3. See
 [LICENSE.APGL](LICENSE.APGL) for the full text of the license.
 
 Copyright (C) 2013
